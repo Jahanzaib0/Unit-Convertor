@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      *{
+         background-color: rgb(255, 255, 255);
+      }
+       #h{
+        display: flex;
+        justify-content: center;
+        background-color: black;
+        color: aliceblue;
+        margin: 0px 2px 5px 2px;
+      }
+      fieldset{
+        margin: auto;
+        margin-top: 35px;
+        height: 10vw;
+        width: 50vw;
+      }
+      input{
+        height: 33px;
+        width: 100%;
+      }
+      footer{
+        height: 1vh;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+      }
+      img{
+        height: 150px;
+        margin: auto;
+        padding: 0;
+        width: 600px;
+      }
+      
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <head>
+    <h1 id="h"> Unit Convertor</h1>
+</head>
+<main>
+    <section>
+        <div id="a">
+            <fieldset>
+              <legend>Feet To Inch:</legend>
+                <label for="f" >Feet </label>
+                <input id="f" type="number" value="1">
+                <label for="i" >Inch </label>
+                <input id="i" type="number" value="12">
+            </fieldset>
+            <fieldset>
+              <legend>Meter To CentiMeter :</legend>
+                <label for="m" > Meter</label>
+                <input id="m" type="number" value="1">
+                <label for="c" >Centimeter </label>
+                <input id="c" type="number" value="100">
+            </fieldset>
+        </div>
+    </section>
+</main>
+<footer>
+  <img id="img" src="/istockphoto-521150895-612x612.jpg" alt="">
+</footer>
+</body>
+<script>
+    let f = document.getElementById("f");
+    let i = document.getElementById("i");
+    let m = document.getElementById("m");
+    let c = document.getElementById("c");
+    f.addEventListener("input", function(){
+      let fv = f.value;
+      let iv = fv * 12;
+      i.value = iv;
+    });
+    i.addEventListener("input", function(){
+      let iv = i.value;
+      let fv = iv / 12;
+      if (!Number.isInteger(fv)){
+        fv = fv.toFixed(3);
+      }
+      f.value = fv;
+    });
+    m.addEventListener("input", function(){
+      let mv = m.value;
+      let cv = mv * 100;
+      c.value = cv;
+    });
+    c.addEventListener("input", function(){
+      let cv = c.value;
+      let mv = cv / 100;
+      if (!Number.isInteger(mv)){
+        mv = mv.toFixed(3);
+      }
+      m.value = mv;
+    });
+</script>
+</html>
